@@ -1,5 +1,7 @@
 # rescript-peerjs
 
+ReScript bindings for [PeerJS](https://peerjs.com).
+
 ## Installation
 
 ```
