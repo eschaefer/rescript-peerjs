@@ -4,7 +4,7 @@ type stream
 
 // Peer
 
-let peerWithNoOptions = Peer.makePeer()
+let peerWithNoConfig = Peer.makePeer()
 let peerWithConfig = Peer.makePeer(
   (),
   ~config={
@@ -12,19 +12,19 @@ let peerWithConfig = Peer.makePeer(
     secure: true,
   },
 )
-let peerWithPresetId = Peer.makePeer(~id="some-id", ())
+let peerWithId = Peer.makePeer(~id="some-id", ())
 
-peerWithPresetId->Peer.destroy()
+peerWithId->Peer.destroy()
 peerWithConfig->Peer.disconnect()
-peerWithNoOptions->Peer.reconnect()
+peerWithNoConfig->Peer.reconnect()
 
 let peerId = peerWithConfig->Peer.id
-let isPeerDisconnected = peerWithNoOptions->Peer.disconnected
-let isPeerDestroyed = peerWithNoOptions->Peer.destroyed
+let isPeerDisconnected = peerWithNoConfig->Peer.disconnected
+let isPeerDestroyed = peerWithNoConfig->Peer.destroyed
 
 // DataConnection
 
-let connectionWithNoOptions = peerWithPresetId->Peer.connect(~id="another-peer-id", ())
+let connectionWithNoOptions = peerWithId->Peer.connect(~id="another-peer-id", ())
 let connectionWithOptions = peerWithConfig->Peer.connect(
   ~id="another-peer-id",
   ~options={
@@ -79,7 +79,7 @@ let bufferSize = connectionWithOptions->Peer.DataConnection.bufferSize
 // MediaConnection
 
 let stream = makeStream()
-let mediaConnectionWithNoOptions = peerWithPresetId->Peer.call(~id="another-peer-id", ~stream, ())
+let mediaConnectionWithNoOptions = peerWithId->Peer.call(~id="another-peer-id", ~stream, ())
 let mediaConnectionWithOptions = peerWithConfig->Peer.call(
   ~id="another-peer-id",
   ~stream,

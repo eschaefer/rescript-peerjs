@@ -2,28 +2,28 @@
 
 import * as Peerjs from "peerjs";
 
-var peerWithNoOptions = new Peerjs.Peer(undefined, undefined);
+var peerWithNoConfig = new Peerjs.Peer(undefined, undefined);
 
 var peerWithConfig = new Peerjs.Peer(undefined, {
       debug: 3,
       secure: true
     });
 
-var peerWithPresetId = new Peerjs.Peer("some-id", undefined);
+var peerWithId = new Peerjs.Peer("some-id", undefined);
 
-peerWithPresetId.destroy();
+peerWithId.destroy();
 
 peerWithConfig.disconnect();
 
-peerWithNoOptions.reconnect();
+peerWithNoConfig.reconnect();
 
 var peerId = peerWithConfig.id;
 
-var isPeerDisconnected = peerWithNoOptions.disconnected;
+var isPeerDisconnected = peerWithNoConfig.disconnected;
 
-var isPeerDestroyed = peerWithNoOptions.destroyed;
+var isPeerDestroyed = peerWithNoConfig.destroyed;
 
-var connectionWithNoOptions = peerWithPresetId.connect("another-peer-id", undefined);
+var connectionWithNoOptions = peerWithId.connect("another-peer-id", undefined);
 
 var connectionWithOptions = peerWithConfig.connect("another-peer-id", {
       serialization: "binary",
@@ -70,7 +70,7 @@ var bufferSize = connectionWithOptions.bufferSize;
 
 var stream = new MediaStream();
 
-var mediaConnectionWithNoOptions = peerWithPresetId.call("another-peer-id", stream, undefined);
+var mediaConnectionWithNoOptions = peerWithId.call("another-peer-id", stream, undefined);
 
 var mediaConnectionWithOptions = peerWithConfig.call("another-peer-id", stream, {
       sdpTransform: (function (sdp) {
@@ -111,9 +111,9 @@ var mediaPeerId = mediaConnectionWithOptions.peer;
 var mediaType = mediaConnectionWithNoOptions.type;
 
 export {
-  peerWithNoOptions ,
+  peerWithNoConfig ,
   peerWithConfig ,
-  peerWithPresetId ,
+  peerWithId ,
   peerId ,
   isPeerDisconnected ,
   isPeerDestroyed ,
@@ -136,4 +136,4 @@ export {
   mediaPeerId ,
   mediaType ,
 }
-/* peerWithNoOptions Not a pure module */
+/* peerWithNoConfig Not a pure module */

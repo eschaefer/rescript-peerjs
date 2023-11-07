@@ -1,35 +1,35 @@
 {
-	"name": "rescript-peerjs",
-	"version": "1.0.0",
-	"description": "Rescript bindings for PeerJS",
-	"main": "./src/Peer.res",
-	"repository": "https://github.com/eschaefer/rescript-peerjs.git",
-	"files": [
-		"src/Peer.res",
-		"bsconfig.json"
-	],
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"res:build": "rescript",
-		"res:dev": "rescript build -w"
-	},
-	"author": {
-		"name": "Eric Schaefer",
-		"email": "omg@eric-schaefer.com"
-	},
-	"license": "ISC",
-	"devDependencies": {
-		"rescript": "^10.1.4"
-	},
-	"peerDependencies": {
-		"peerjs": ">=1.4.0"
-	},
-	"keywords": [
-		"BuckleScript",
-		"reason",
-		"rescript",
-		"peerjs",
-		"webrtc",
-		"peer.js"
-	]
+  "name": "rescript-peerjs",
+  "version": "1.0.0",
+  "description": "Rescript bindings for PeerJS",
+  "main": "./src/Peer.res",
+  "repository": "https://github.com/eschaefer/rescript-peerjs.git",
+  "files": [
+    "src/Peer.res",
+    "bsconfig.json"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "res:build": "rescript",
+    "res:dev": "rescript build -w"
+  },
+  "author": {
+    "name": "Eric Schaefer",
+    "email": "omg@eric-schaefer.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "rescript": "^10.1.4"
+  },
+  "peerDependencies": {
+    "peerjs": ">=1.4.0"
+  },
+  "keywords": [
+    "BuckleScript",
+    "reason",
+    "rescript",
+    "peerjs",
+    "webrtc",
+    "peer.js"
+  ]
 }
